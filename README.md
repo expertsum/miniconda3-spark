@@ -23,7 +23,9 @@ See [this](https://github.com/expertsum/spark-kubernetes) repository.
 To start the server execute the following command:
 
 ```
-$ docker run --rm -p 8888:8888 elopezdelara/miniconda3-spark jupyter notebook --ip='*' --no-browser --allow-root --NotebookApp.token=''
+$ docker run --rm -v $PWD:/opt/notebooks -p 8888:8888 elopezdelara/miniconda3-spark jupyter notebook \
+             --ip='*' --no-browser --allow-root --notebook-dir=/opt/notebooks \
+             --NotebookApp.token=''
 ```
 
 Then from within a notebook execute the following code to create a Spark session and execute a job:
